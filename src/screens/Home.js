@@ -1,14 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import HeaderTabs from "../components/HeaderTabs";
 
 const Home = () => {
-    return (
-        <View>
-            <Text>Home</Text>
-        </View>
-    );
+    return <HeaderTabs />;
 };
 
 export default Home;
-
-const styles = StyleSheet.create({});
