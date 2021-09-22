@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     button: (activeTab, title) => ({
         backgroundColor:
             activeTab === title ? COLORS.primary : COLORS.secondary,
-        borderWidth: activeTab === title ? 0 : wp(0.25),
         borderRadius: wp(10),
         width: wp(30),
         height: hp(4),
