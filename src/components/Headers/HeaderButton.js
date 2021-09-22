@@ -5,14 +5,23 @@ import {
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
+import { COLORS } from "../../constants";
+
 const HeaderButton = (props) => {
     return (
         <TouchableOpacity
             disabled={props.disabled}
-            style={[styles.button, props.style]}
+            style={[styles.button(props.activeTab, props.title), props.style]}
             onPress={() => props.onPress(props.title)}
         >
-            <Text style={[styles.title, props.titleStyle]}>{props.title}</Text>
+            <Text
+                style={[
+                    styles.title(props.activeTab, props.title),
+                    props.titleStyle,
+                ]}
+            >
+                {props.title}
+            </Text>
         </TouchableOpacity>
     );
 };
@@ -20,20 +29,21 @@ const HeaderButton = (props) => {
 export default HeaderButton;
 
 const styles = StyleSheet.create({
-    button: {
-        backgroundColor: "black",
-        borderWidth: 1,
+    button: (activeTab, title) => ({
+        backgroundColor:
+            activeTab === title ? COLORS.primary : COLORS.secondary,
+        borderWidth: activeTab === title ? 0 : wp(0.25),
         borderRadius: wp(10),
         width: wp(30),
-        height: hp(5),
+        height: hp(4),
         justifyContent: "center",
         alignItems: "center",
         marginHorizontal: wp(1),
-    },
+    }),
 
-    title: {
-        color: "white",
-        fontWeight: "bold",
+    title: (activeTab, title) => ({
+        color: activeTab === title ? COLORS.secondary : COLORS.primary,
+        fontWeight: activeTab === title ? "bold" : "normal",
         fontSize: hp(2),
-    },
+    }),
 });
