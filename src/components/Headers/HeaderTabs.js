@@ -4,6 +4,7 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+
 import HeaderButton from "./HeaderButton";
 
 const HeaderTabs = () => {
@@ -23,8 +24,7 @@ const HeaderTabs = () => {
             <HeaderButton
                 title="Pick Up"
                 onPress={toggleActiveTab}
-                style={{ backgroundColor: "white" }}
-                titleStyle={{ color: "black", fontWeight: "normal" }}
+                activeTab={activeTab}
             />
         </View>
     );
